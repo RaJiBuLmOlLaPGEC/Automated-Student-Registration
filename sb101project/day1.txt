@@ -1,0 +1,35 @@
+Day 1:  Creating  all the table in MYSQL.
+
+
+
+create database Automated_Student_Registration ;
+
+
+//student table
+
+create table student (
+roll int primary key auto_increment,
+name varchar(12) not null,
+username varchar(12) unique not null ,
+password varchar(12) not null,
+address varchar(12) not null,
+mobile_number varchar(10) not null)
+;
+ 
+//course table
+
+create table course(
+cid int primary key auto_increment,
+cname varchar(12) not null,
+fee int not null,
+duration varchar(12) not null)
+;
+
+//course student table
+
+create table course_student(
+roll int,
+cid int,
+foreign key roll(roll) references student(roll),
+foreign key cid(cid) references course(cid)
+);
