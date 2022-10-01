@@ -1,0 +1,94 @@
+Automated-Student-Registration-System
+--------------------------------------
+
+DATABASE NAME: automated_student_registration
+
+TABLES: 
++------------------------------------------+
+| Tables_in_automated_student_registration |
++------------------------------------------+
+| admin                                    |
+| batch                                    |
+| batch_student                            |
+| course                                   |
+| course_seat                              |
+| course_student                           |
+| student                                  |
++------------------------------------------+
+
+
+ADMIN TABLE:
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(20) | NO   | PRI | NULL    |       |
+| password | varchar(20) | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+
+FOR ADMIN LOG IN:
+-----------------
++-------------------+----------+
+| username          | password |
++-------------------+----------+
+| rajesh@gmail.com  | 55555    |
+| rajibul@gmail.com | 12345    |
++-------------------+----------+
+
+BATCH TABLE:
+-------------
++---------+------+------+-----+---------+-------+
+| Field   | Type | Null | Key | Default | Extra |
++---------+------+------+-----+---------+-------+
+| batchNo | int  | NO   | PRI | NULL    |       |
+| seat    | int  | NO   |     | NULL    |       |
++---------+------+------+-----+---------+-------+
+
+STUDENT TABLE:
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| roll          | int         | NO   | PRI | NULL    | auto_increment |
+| name          | varchar(20) | YES  |     | NULL    |                |
+| username      | varchar(25) | YES  | UNI | NULL    |                |
+| password      | varchar(20) | YES  |     | NULL    |                |
+| address       | varchar(20) | YES  |     | NULL    |                |
+| mobile_number | varchar(10) | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+
+BATCH_STUDENT TABLE:
++---------+------+------+-----+---------+-------+
+| Field   | Type | Null | Key | Default | Extra |
++---------+------+------+-----+---------+-------+
+| batchNo | int  | YES  | MUL | NULL    |       |
+| roll    | int  | YES  | MUL | NULL    |       |
++---------+------+------+-----+---------+-------+
+
+COURSE TABLE:
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| cid      | int         | NO   | PRI | NULL    | auto_increment |
+| cname    | varchar(12) | NO   | UNI | NULL    |                |
+| fee      | int         | NO   |     | NULL    |                |
+| duration | varchar(12) | NO   |     | NULL    |                |
+| seat     | int         | NO   |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+
+ COURSE_SEAT;
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| cid   | int  | YES  | MUL | NULL    |       |
+| seat  | int  | YES  |     | NULL    |       |
++-------+------+------+-----+---------+-------+
+
+COURSE_STUDENT
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| roll  | int  | YES  | MUL | NULL    |       |
+| cid   | int  | YES  | MUL | NULL    |       |
++-------+------+------+-----+---------+-------+
+
+
+
